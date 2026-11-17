@@ -48,32 +48,80 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="app-shell" style={{ minHeight: "100vh", display: "flex" }}>
+    <div className="app-shell login-shell" style={{ minHeight: "100vh", display: "flex", position: "relative", overflow: "hidden" }}>
+      {/* Ambient glow — login only, more present but still restrained */}
+      <div aria-hidden className="login-glow-layer" style={{
+        position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0,
+        backgroundImage: [
+          "radial-gradient(ellipse 90% 70% at 18% 35%, rgba(123,140,255,0.18), transparent 58%)",
+          "radial-gradient(ellipse 55% 45% at 42% 70%, rgba(91,163,255,0.10), transparent 55%)",
+          "radial-gradient(ellipse 40% 35% at 8% 85%, rgba(123,140,255,0.08), transparent 50%)",
+          "radial-gradient(ellipse 50% 40% at 88% 20%, rgba(123,140,255,0.06), transparent 55%)",
+        ].join(", "),
+      }} />
+      <div aria-hidden className="login-glow-pulse" style={{
+        position: "absolute", left: "-8%", top: "18%", width: "52%", height: "64%",
+        pointerEvents: "none", zIndex: 0, borderRadius: "50%",
+        background: "radial-gradient(circle, rgba(123,140,255,0.14) 0%, transparent 68%)",
+        filter: "blur(40px)",
+      }} />
+      <div aria-hidden style={{
+        position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0, opacity: 0.35,
+        backgroundImage: "linear-gradient(rgba(123,140,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(123,140,255,0.035) 1px, transparent 1px)",
+        backgroundSize: "64px 64px",
+        maskImage: "radial-gradient(ellipse 70% 80% at 30% 45%, black 20%, transparent 75%)",
+        WebkitMaskImage: "radial-gradient(ellipse 70% 80% at 30% 45%, black 20%, transparent 75%)",
+      }} />
+
       <div style={{
-        flex: 1.15, display: "flex", flexDirection: "column", justifyContent: "center",
-        padding: "72px 80px", borderRight: `1px solid ${color.divider}`,
+        position: "relative", zIndex: 1,
+        flex: 1.2, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end",
+        padding: "72px 56px 72px 64px",
+        borderRight: `1px solid rgba(123,140,255,0.12)`,
       }} className="login-brand">
-        <motion.div {...motionPreset.fadeUp} style={{ maxWidth: "560px" }}>
-          <p style={{ fontSize: "14px", fontWeight: 600, color: color.accentSoft, letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: "28px" }}>VISC</p>
-          <h1 style={{ fontSize: "48px", fontWeight: 560, color: color.text, letterSpacing: "-0.035em", lineHeight: 1.12, marginBottom: "20px" }}>
+        <motion.div {...motionPreset.fadeUp} style={{ maxWidth: "620px", width: "100%", textAlign: "left" }}>
+          <p style={{
+            fontSize: "15px", fontWeight: 600, color: color.accentSoft,
+            letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "32px",
+            textShadow: "0 0 28px rgba(123,140,255,0.45)",
+          }}>
+            VISC
+          </p>
+          <h1 style={{
+            fontSize: "56px", fontWeight: 560, color: color.text,
+            letterSpacing: "-0.038em", lineHeight: 1.08, marginBottom: "22px",
+          }}>
             Visionary Intelligence<br />& Strategic Capital
           </h1>
-          <p style={{ fontSize: "18px", color: color.muted, lineHeight: 1.65, marginBottom: "44px" }}>
+          <p style={{
+            fontSize: "19px", color: color.textSecondary, lineHeight: 1.7,
+            marginBottom: "48px", maxWidth: "540px",
+          }}>
             Financial intelligence, market analysis, and decision support systems for professional operations.
           </p>
           <div style={{
-            padding: "28px 32px", borderRadius: radius.lg,
-            border: `1px solid ${color.accentSoftBorder}`,
-            background: `linear-gradient(145deg, ${color.accentSoftBg}, ${color.card})`,
-            boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
+            padding: "30px 34px", borderRadius: radius.xl,
+            border: `1px solid rgba(123,140,255,0.32)`,
+            background: `linear-gradient(145deg, rgba(123,140,255,0.14), ${color.card})`,
+            boxShadow: "0 0 0 1px rgba(123,140,255,0.06), 0 0 48px rgba(123,140,255,0.16), 0 12px 40px rgba(0,0,0,0.35)",
+            maxWidth: "420px",
+            position: "relative",
+            overflow: "hidden",
           }}>
-            <p style={{ fontSize: "20px", fontWeight: 560, color: color.text, marginBottom: "8px" }}>VISC</p>
-            <p style={{ fontSize: "15px", color: color.muted }}>Market Intelligence Platform</p>
+            <div aria-hidden style={{
+              position: "absolute", inset: 0, pointerEvents: "none",
+              background: "linear-gradient(120deg, rgba(255,255,255,0.04) 0%, transparent 42%)",
+            }} />
+            <p style={{ position: "relative", fontSize: "22px", fontWeight: 560, color: color.text, marginBottom: "8px" }}>VISC</p>
+            <p style={{ position: "relative", fontSize: "16px", color: color.muted }}>Market Intelligence Platform</p>
           </div>
         </motion.div>
       </div>
 
-      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "48px" }}>
+      <div style={{
+        position: "relative", zIndex: 1,
+        flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "48px",
+      }}>
         <motion.div {...motionPreset.fadeUp} transition={{ delay: 0.1 }} style={{ width: "100%", maxWidth: "380px" }}>
           <h2 style={{ fontSize: "18px", fontWeight: 500, color: color.text, marginBottom: "6px" }}>Sign In</h2>
           <p style={{ fontSize: "13px", color: color.muted, marginBottom: "32px" }}>Access the operations center</p>
@@ -108,7 +156,19 @@ export default function LoginPage() {
         </motion.div>
       </div>
 
-      <style>{`@media (max-width: 900px) { .login-brand { display: none !important; } }`}</style>
+      <style>{`
+        @media (max-width: 900px) {
+          .login-brand { display: none !important; }
+          .login-glow-pulse { left: 40% !important; width: 80% !important; opacity: 0.7; }
+        }
+        @keyframes loginGlowDrift {
+          0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+          50% { transform: translate(2%, -1.5%) scale(1.04); opacity: 0.88; }
+        }
+        .login-glow-pulse {
+          animation: loginGlowDrift 14s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 }

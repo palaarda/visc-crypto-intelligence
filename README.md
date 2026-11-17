@@ -1,8 +1,64 @@
 # VISC — Market Intelligence Platform
 
-**VISC** (*Visionary Intelligence & Strategic Capital*) is a market intelligence and confluence signal platform that uses live public market data to score setups, publish locked signal snapshots, and track a paper-trading lifecycle in the operations panel.
+**VISC** (*Visionary Intelligence & Strategic Capital*) is a market intelligence and confluence signal platform built for professional operations desks.
 
-VISC does **not** place live exchange orders. It is a decision-support desk, not an auto-execution trading bot.
+It consumes **live public market data**, scores multi-module setups, publishes **immutable signal snapshots**, and tracks a **paper-trading lifecycle** inside a premium ultra-dark operations UI.
+
+VISC does **not** place live exchange orders. It is a decision-support desk — not an auto-execution bot.
+
+<p align="center">
+  <img src="screenshots/visc1.png" alt="VISC login — Visionary Intelligence & Strategic Capital" width="100%" />
+</p>
+
+<p align="center"><em>Split-screen access — brand narrative on the left, operations sign-in on the right.</em></p>
+
+---
+
+## Product gallery
+
+### Operations Center
+
+Live overview of confluence health, market regime, fear & greed, movers, and active paper signals — dense, calm, and built for scanning at a glance.
+
+<p align="center">
+  <img src="screenshots/visc2.png" alt="VISC Operations Center dashboard" width="100%" />
+</p>
+
+### Asset Analysis
+
+Deep asset workspace with live price context, TradingView charting, engine rationale, and technical indicator panels.
+
+<p align="center">
+  <img src="screenshots/visc3.png" alt="VISC Asset Analysis — BTC chart and engine score" width="100%" />
+</p>
+
+### Signals
+
+Published snapshots with locked entry / stop / scaled take-profits, quality tiers, regime metadata, archive controls, and the live watchlist scan table.
+
+<p align="center">
+  <img src="screenshots/visc4.png" alt="VISC Signals — published ETH SHORT snapshot" width="100%" />
+</p>
+
+### Strategies
+
+Confluence engine v2 — publish threshold, regime gate, and the scoring module grid (trend, momentum, volume, volatility, structure, liquidity, and more).
+
+<p align="center">
+  <img src="screenshots/visc5.png" alt="VISC Strategies — confluence modules" width="100%" />
+</p>
+
+---
+
+## Design language
+
+| Principle | How it shows up |
+|-----------|-----------------|
+| Ultra-dark canvas | Deep `#08090B` shell — less glare, more focus on data |
+| Soft accent, not neon noise | Cool indigo (`#7B8CFF`) for chrome; green/red reserved for market outcomes |
+| One operations desk | Sidebar sections for Operations / Intelligence / System |
+| Signal clarity | Snapshot cards lock levels; status badges and PnL stay readable at a glance |
+| Atmosphere without clutter | Ambient glow on login and restrained card depth in the panel |
 
 ---
 
@@ -66,6 +122,7 @@ PostgreSQL / Redis → provisioned in Docker Compose; not used by the live Next.
 │   ├── app/
 │   ├── .env.example
 │   └── requirements.txt
+├── screenshots/              # Product UI captures for documentation
 ├── docker-compose.yml
 ├── .gitignore
 └── README.md
