@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/*
+ * SAHA OPERASYONU — Global Styles
+ * Premium dark · soğuk accent · sakin derinlik
+ */
+
+@theme inline {
+  --color-bg-primary: #08090B;
+  --color-bg-secondary: #0C0E12;
+  --color-bg-card: #12151A;
+  --color-border: #232833;
+  --color-divider: #1A1E27;
+  --color-text-primary: #F4F5F7;
+  --color-text-secondary: #A8B0C0;
+  --color-text-muted: #6B7385;
+  --color-accent: #E8EAED;
+  --color-accent-soft: #7B8CFF;
+  --color-success: #1ECB8C;
+  --color-danger: #F0455A;
+  --color-warning: #F0B429;
+  --color-info: #5BA3FF;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  background-color: #08090B;
+  color: #F4F5F7;
+  font-family: var(--font-geist-sans), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100%;
+  letter-spacing: -0.011em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 550;
+  letter-spacing: -0.025em;
+}
+
+/* Ambient canvas — hafif derinlik, gürültü yok */
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  background-color: #08090B;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(123,140,255,0.07), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(30,203,140,0.03), transparent 50%),
+    radial-gradient(ellipse 50% 30% at 50% 100%, rgba(91,163,255,0.04), transparent 55%);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A3140;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3A4356;
+}
+
+::selection {
+  background: rgba(123,140,255,0.28);
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 1px solid rgba(123,140,255,0.7);
+  outline-offset: 2px;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #12151A 25%,
+    #1A1E27 50%,
+    #12151A 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: 8px;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.35; transform: scale(0.85); }
+}
+.pulse-live {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+.input-base::placeholder {
+  color: #6B7385;
+}
+.input-base:focus {
+  outline: none;
+  border-color: rgba(123,140,255,0.55) !important;
+  box-shadow: 0 0 0 3px rgba(123,140,255,0.12);
+}
+.input-error {
+  border-color: rgba(240,69,90,0.55) !important;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Kart üst highlight çizgisi */
+.card-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.card-sheen::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  pointer-events: none;
+}
