@@ -245,6 +245,3 @@ These are planned engineering areas, not statements that the current intelligenc
 
 ---
 
-## License
-
-All rights reserved © VISC
